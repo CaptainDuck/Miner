@@ -54,7 +54,12 @@ function searchDirectory(RecursiveDirectoryIterator $iterator, \League\CLImate\T
                             if($type === "psr-0") $to = "src";
                             else $to = "src/" . str_replace("\\", "/", $name);
                             @mkdir($to, 0775, true);
-                            copyDirectory(implode("/", array_slice($file, 0, -1)) . "/" . $item, $to, $progress);
+                            $toCopy =  implode("/", array_slice($file, 0, -1)) . "/" . $item;
+                            if(!is_dir($toCopy)){
+                                //$climate->comment(\miner\Output::indent($toCopy. " is not a directory.. skipping copy"));
+                                continue;
+                            }
+                            copyDirectory($toCopy, $to, $progress);
                         }
                     }
                 }

@@ -12,7 +12,7 @@ class JSONProtector{
         if($this->wasProtected) {
             if (!is_file($this->file)) return;
             $data = file_get_contents($this->file);
-            if ($data{0} !== "#") {
+            if ($data[0] !== "#") {
                 $data = "#miner\n" . $data;
             }
             file_put_contents($this->file, $data);
@@ -21,7 +21,7 @@ class JSONProtector{
     public function unprotect(){
         if(!is_file($this->file)) return;
         $data = file_get_contents($this->file);
-        if($data{0} === "#"){
+        if($data[0] === "#"){
             $this->wasProtected = true;
             $data = substr($data, strpos($data, "\n")+1);;
         }

@@ -19,7 +19,7 @@ class Composer{
         $this->handle = proc_open($cmd, [
             0 => ["pipe", "r"],
             1 => ["pipe", "w"],
-            2 => ["pipe", "a"]
+            2 => ["pipe", "w"]
         ], $this->pipes);
         stream_set_blocking($this->pipes[1],0);
         stream_set_blocking($this->pipes[2],0);
