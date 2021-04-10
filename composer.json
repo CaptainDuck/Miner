@@ -1,5 +1,5 @@
 {
-  "name": "falkirks/Miner",
+  "name": "falkirks/miner",
   "description": "Handlebars processor for php",
   "type": "library",
   "minimum-stability": "dev",
